@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "body-parser": "^1.20.2",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "sha3": "^2.1.4",
+    "web3": "^4.3.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "blockchain-document-verification",
+  "version": "1.0.0",
+  "main": "hash.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
