@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 require('dotenv').config();
-const mnemonicPhrase = process.env.MNEMONIC_PHRASE
 const { Web3 } = require('web3');
 
 const app = express();
@@ -11,20 +10,20 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
-const ganacheUrl = process.env.GANACHE_URL; // Update if your Ganache is running on a different URL
+// const ganacheUrl = process.env.GANACHE_URL; // Update if your Ganache is running on a different URL
 
 
 let provider = new HDWalletProvider({
     mnemonic: {
-      phrase: mnemonicPhrase
+      phrase: process.env.MNEMONIC
     },
-    providerOrUrl: ganacheUrl
+    providerOrUrl: process.env.URL
   });
 
 const web3 = new Web3(provider)
 
 const contractAbi = require('./TruffleProject/abi.json'); // Replace with your actual ABI
-const contractAddress =   process.env.CONTRACT_ADDRESS; // Replace with your actual contract address
+const contractAddress =  '0x6A8C8E703059DBdB54E4b42B08f791aA42461483' ; // Replace with your actual contract address
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
 
 // Endpoint to add a document hash
